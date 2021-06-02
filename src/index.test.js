@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { SkyAlert } from './SkyAlert';
 
-describe('ExampleComponent', () => {
+describe('SkyAlert', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+    expect(SkyAlert).toBeTruthy();
+  });
+});
