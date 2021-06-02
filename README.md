@@ -1,13 +1,13 @@
 # react-skyux
 
-> Made with create-react-library
+> Blackbaud's SKY UX components, but in React
 
 [![NPM](https://img.shields.io/npm/v/react-skyux.svg)](https://www.npmjs.com/package/react-skyux) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-skyux
+npm install --save react-skyux @skyux/theme
 ```
 
 ## Usage
@@ -15,12 +15,13 @@ npm install --save react-skyux
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-skyux'
+import { SkyAlert } from 'react-skyux'
 import 'react-skyux/dist/index.css'
+import '@skyux/theme/css/sky.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <SkyAlert>My first react-skyux component!</SkyAlert>
   }
 }
 ```
