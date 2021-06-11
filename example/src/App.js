@@ -1,5 +1,5 @@
 import React from 'react'
-import { SkyAlert, SkyCard, SkyCheckbox } from 'react-skyux'
+import { SkyAlert, SkyCard, SkyCheckbox, SkyDropdown } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
 
@@ -16,6 +16,10 @@ const App = () => {
         </SkyCard.Actions>
       </SkyCard>
       <SkyCheckbox checked label="This is a checkbox" />
+      <SkyDropdown>
+        <SkyDropdown.Item name="Option 1" onClick={() => {}} />
+        <SkyDropdown.Item name="Option 2" onClick={() => {}} />
+      </SkyDropdown>
     </div>
   )
     
