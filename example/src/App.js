@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
-  SkyWait, SkyGrid,
+  SkyWait, SkyGrid, SkyModal,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
 
 const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <SkyFluidGrid>
       <SkyRow>
@@ -57,6 +59,24 @@ const App = () => {
             sort={'name'}
             onSortChange={sort => alert(`Sorted ${sort}!`)}
           />
+        </SkyColumn>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <button type="button" className="sky-btn sky-btn-default" onClick={() => { setModalOpen(true); }}>
+            This is a button that opens a modal
+          </button>
+          {modalOpen && (
+            <SkyModal
+              onClose={() => { setModalOpen(false); }}
+              header="This is a modal"
+              footer={(
+                <button type="button" className="sky-btn sky-btn-primary" onClick={() => { setModalOpen(false); }}>
+                  Close modal
+                </button> 
+              )}
+            >
+              Here is some modal content
+            </SkyModal>
+          )}
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
