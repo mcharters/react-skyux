@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
-  SkyWait, SkyGrid, SkyModal, SkyPaging,
+  SkyWait, SkyGrid, SkyModal, SkyPaging, SkyRepeater,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
@@ -9,6 +9,7 @@ import '@skyux/theme/css/sky.css'
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [expandedItem, setExpandedItem] = useState(1);
 
   return (
     <SkyFluidGrid>
@@ -84,6 +85,22 @@ const App = () => {
         <SkyColumn xs={12} sm={6} md={4}>
           <p>This is a pagination control</p>
           <SkyPaging itemCount={20} currentPage={currentPage} onCurrentPageChange={(p) => { setCurrentPage(p); }} />
+        </SkyColumn>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <SkyRepeater>
+            <SkyRepeater.Item
+              title="Call Robert Hernandez"
+              content="Robert recently gave a very generous gift. We should call him to thank him."
+              isExpanded={expandedItem === 1}
+              onExpanded={() => { setExpandedItem(1); }}
+            />
+            <SkyRepeater.Item
+              title="Send Invitation to Spring Ball"
+              content="The Spring Ball is coming up soon. Let's get those invitations out!"
+              isExpanded={expandedItem === 2}
+              onExpanded={() => { setExpandedItem(2); }}
+            />
+          </SkyRepeater>
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
