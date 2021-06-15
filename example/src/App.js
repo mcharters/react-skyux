@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
-  SkyWait
+  SkyWait, SkyGrid,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
@@ -31,6 +31,32 @@ const App = () => {
         <SkyColumn xs={12} sm={6} md={4}>
           <p>This is a waiting indicator</p>
           <SkyWait />
+        </SkyColumn>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <SkyGrid
+            getId={d => d.id}
+            data={[
+              { id: 1, name: 'Niels Bohr', email: 'niels.bohr@example.com' },
+              { id: 2, name: 'Ada Lovelace', email: 'ada.lovelace@example.com' },
+              { id: 3, name: 'Marie Curie', email: 'marie.curie@example.com' },
+            ]}
+            columns={[
+              {
+                heading: 'Name',
+                field: d => d.name,
+                sort: 'name',
+              },
+              {
+                heading: 'Email',
+                field: d => d.email,
+                sort: 'email',
+              }
+            ]}
+            selected={[2]}
+            onSelect={id => alert(`Selected ${id}!`)}
+            sort={'name'}
+            onSortChange={sort => alert(`Sorted ${sort}!`)}
+          />
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
