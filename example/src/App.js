@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
   SkyWait, SkyGrid, SkyModal, SkyPaging, SkyRepeater, SkySearch,
+  SkyToolbar,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
@@ -116,6 +117,26 @@ const App = () => {
         <SkyColumn xs={12} sm={6} md={4}>
           <h2>SkySearch</h2>
           <SkySearch debounceTime={500} onChange={(term) => { alert(`Searched ${term}!`); }} />
+        </SkyColumn>
+      </SkyRow>
+      <SkyRow>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyToolbar</h2>
+          <SkyToolbar>
+            <SkyToolbar.Section>
+              <SkyToolbar.Item>
+                <button type="button" className="sky-btn sky-btn-default">Click me</button>
+              </SkyToolbar.Item>
+              <SkyToolbar.Item>
+                <button type="button" className="sky-btn sky-btn-default">Click me too</button>
+              </SkyToolbar.Item>
+            </SkyToolbar.Section>
+            <SkyToolbar.Section>
+              <SkyToolbar.Item>
+                <button type="button" className="sky-btn sky-btn-default">I'm a third option</button>
+              </SkyToolbar.Item>
+            </SkyToolbar.Section>
+          </SkyToolbar>
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
