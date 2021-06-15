@@ -6,4 +6,5 @@ export { default as SkyGrid } from './SkyGrid';
 export { default as SkyModal } from './SkyModal';
 export { default as SkyPaging } from './SkyPaging';
 export { default as SkyRepeater } from './SkyRepeater';
+export { default as SkySearch } from './SkySearch';
 export { default as SkyWait } from './SkyWait';

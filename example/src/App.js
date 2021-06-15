@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
-  SkyWait, SkyGrid, SkyModal, SkyPaging, SkyRepeater,
+  SkyWait, SkyGrid, SkyModal, SkyPaging, SkyRepeater, SkySearch,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
@@ -14,10 +14,17 @@ const App = () => {
   return (
     <SkyFluidGrid>
       <SkyRow>
+        <SkyColumn xs={12}>
+          <h1>react-skyux</h1>
+        </SkyColumn>
+      </SkyRow>
+      <SkyRow>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyAlert</h2>
           <SkyAlert closeable={true} onClose={() => { alert("You closed me!"); }}>This is an alert</SkyAlert>
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyCard</h2>
           <SkyCard title="This is a card">
             <SkyCard.Content>
               Here is some card content
@@ -28,15 +35,17 @@ const App = () => {
           </SkyCard>
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyCheckbox</h2>
           <SkyCheckbox checked label="This is a checkbox" />
         </SkyColumn>
       </SkyRow>
       <SkyRow>
         <SkyColumn xs={12} sm={6} md={4}>
-          <p>This is a waiting indicator</p>
+          <h2>SkyWait</h2>
           <SkyWait />
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyGrid</h2>
           <SkyGrid
             getId={d => d.id}
             data={[
@@ -63,6 +72,7 @@ const App = () => {
           />
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyModal</h2>
           <button type="button" className="sky-btn sky-btn-default" onClick={() => { setModalOpen(true); }}>
             This is a button that opens a modal
           </button>
@@ -83,10 +93,11 @@ const App = () => {
       </SkyRow>
       <SkyRow>
         <SkyColumn xs={12} sm={6} md={4}>
-          <p>This is a pagination control</p>
+          <h2>SkyPaging</h2>
           <SkyPaging itemCount={20} currentPage={currentPage} onCurrentPageChange={(p) => { setCurrentPage(p); }} />
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkyRepeater</h2>
           <SkyRepeater>
             <SkyRepeater.Item
               title="Call Robert Hernandez"
@@ -101,6 +112,10 @@ const App = () => {
               onExpanded={() => { setExpandedItem(2); }}
             />
           </SkyRepeater>
+        </SkyColumn>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <h2>SkySearch</h2>
+          <SkySearch debounceTime={500} onChange={(term) => { alert(`Searched ${term}!`); }} />
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>

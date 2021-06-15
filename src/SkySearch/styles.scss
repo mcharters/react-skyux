@@ -1,0 +1,132 @@
+@import "~@skyux/theme/scss/mixins";
+@import "~@skyux/theme/scss/_compat/mixins";
+@import "../skyResponsiveMixins.scss";
+
+$sky-search-width: 300px !default;
+$sky-search-background-color: $sky-color-white !default;
+
+.sky-search-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0 none;
+
+  &:focus {
+    border: 0 none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  /**
+   * Prevents the IE clear icon from displaying in the input
+   * because our search control already includes a clear icon.
+   */
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.sky-search-btn[searchbutton] {
+  border-left: 0 none;
+
+  &:hover,
+  &:focus {
+    background-color: $sky-color-white;
+  }
+}
+
+.sky-search-btn-apply[searchbutton] {
+  padding-left: 6px;
+  @include sky-border(dark, top, bottom, right);
+}
+
+.sky-search-btn-clear[searchbutton] {
+  border-right: 0 none;
+  padding-right: 6px;
+  @include sky-border(dark, top, bottom);
+}
+
+.sky-search-input-focused {
+  .sky-search-btn[searchbutton] {
+    border-color: transparent;
+    border-top: 0 none;
+    border-bottom: 0 none;
+  }
+
+  .sky-search-btn-apply[searchbutton] {
+    border-right: 0 none;
+  }
+}
+
+// Search input (.sky-form-control) has z-index 2.
+// This ensures the button's focus border won't get clipped by input.
+.sky-search-input-container {
+  .sky-input-group-btn > button:focus {
+    z-index: 3;
+  }
+}
+
+/**
+ * Mobile styles
+ */
+@include sky-host-responsive-container-xs-min() {
+  .sky-search-input-container {
+    min-width: auto;
+  }
+}
+
+@include sky-host-responsive-container-sm-min() {
+  .sky-search-input-container {
+    min-width: $sky-search-width;
+  }
+}
+
+/**
+ * On iOS, the input will zoom when focused,
+ * setting the font-size prevents this.
+ *
+ * Not using the reactive mixins due to this being a bug based on actual screen size
+ */
+@media (max-width: $sky-screen-xs-max) {
+  .sky-search-input,
+  .sky-search-btn-apply,
+  .sky-search-btn-clear {
+    font-size: $sky-font-size-base;
+  }
+}
+
+.sky-search-btn-open-applied {
+  &.sky-search-btn-open,
+  &.sky-search-btn-open:hover {
+    color: $sky-highlight-color-success;
+    border: 2px solid $sky-highlight-color-success;
+    padding: 5px 11px;
+  }
+}
+
+.sky-search-dismiss-container {
+  display: flex;
+}
+
+.sky-search-item-dismiss {
+  flex-shrink: 0;
+  display: flex;
+
+  > .sky-btn {
+    border-color: transparent;
+  }
+}
+
+.sky-search-item-input {
+  flex-grow: 1;
+  display: flex;
+}
+
+.sky-search-dismiss-absolute {
+  position: absolute;
+  background-color: $sky-search-background-color;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: $sky-padding-half;
+}
