@@ -1,7 +1,7 @@
 {
   "name": "react-skyux",
-  "version": "1.0.0",
-  "description": "Made with create-react-library",
+  "version": "0.0.1",
+  "description": "Blackbaud's SKY UX Components, but in React",
   "author": "mcharters",
   "license": "MIT",
   "repository": "mcharters/react-skyux",
