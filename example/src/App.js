@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import {
   SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
-  SkyWait, SkyGrid, SkyModal,
+  SkyWait, SkyGrid, SkyModal, SkyPaging,
 } from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <SkyFluidGrid>
@@ -77,6 +78,12 @@ const App = () => {
               Here is some modal content
             </SkyModal>
           )}
+        </SkyColumn>
+      </SkyRow>
+      <SkyRow>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <p>This is a pagination control</p>
+          <SkyPaging itemCount={20} currentPage={currentPage} onCurrentPageChange={(p) => { setCurrentPage(p); }} />
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
