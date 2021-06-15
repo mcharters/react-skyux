@@ -1,5 +1,8 @@
 import React from 'react'
-import { SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn } from 'react-skyux'
+import {
+  SkyAlert, SkyCard, SkyCheckbox, SkyFluidGrid, SkyRow, SkyColumn,
+  SkyWait
+} from 'react-skyux'
 import 'react-skyux/dist/index.css'
 import '@skyux/theme/css/sky.css'
 
@@ -22,6 +25,12 @@ const App = () => {
         </SkyColumn>
         <SkyColumn xs={12} sm={6} md={4}>
           <SkyCheckbox checked label="This is a checkbox" />
+        </SkyColumn>
+      </SkyRow>
+      <SkyRow>
+        <SkyColumn xs={12} sm={6} md={4}>
+          <p>This is a waiting indicator</p>
+          <SkyWait />
         </SkyColumn>
       </SkyRow>
     </SkyFluidGrid>
